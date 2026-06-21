@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Journey ❤️</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body{
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+        color:white;
+        text-align:center;
+    }
+
+    .card{
+        background:rgba(255,255,255,0.15);
+        backdrop-filter:blur(10px);
+        padding:40px;
+        border-radius:25px;
+        width:90%;
+        max-width:600px;
+        box-shadow:0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    h1{
+        font-size:2.5rem;
+        margin-bottom:15px;
+    }
+
+    .counter{
+        font-size:3rem;
+        font-weight:bold;
+        margin:20px 0;
+    }
+
+    .details{
+        font-size:1.1rem;
+        line-height:2;
+    }
+
+    .message{
+        margin-top:25px;
+        font-size:1.2rem;
+    }
+
+    .heart{
+        font-size:2rem;
+        animation:beat 1s infinite;
+    }
+
+    @keyframes beat{
+        0%,100%{
+            transform:scale(1);
+        }
+        50%{
+            transform:scale(1.2);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>❤️ Our Journey ❤️</h1>
+
+    <p>We've been together for</p>
+
+    <div class="counter" id="days"></div>
+
+    <div class="details">
+        <div id="hours"></div>
+        <div id="minutes"></div>
+    </div>
+
+    <div class="message">
+        Every moment with you is my favorite memory ✨
+    </div>
+
+    <div class="heart">❤️</div>
+</div>
+
+<script>
+
+const startDate = new Date("2026-03-018"); // CHANGE THIS
+
+function updateCounter(){
+
+    const now = new Date();
+
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor(diff / (1000*60*60));
+    const minutes = Math.floor(diff / (1000*60));
+
+    document.getElementById("days").innerHTML =
+        `${days} Days`;
+
+    document.getElementById("hours").innerHTML =
+        `${hours.toLocaleString()} Hours Together`;
+
+    document.getElementById("minutes").innerHTML =
+        `${minutes.toLocaleString()} Minutes of Memories`;
+}
+
+updateCounter();
+setInterval(updateCounter,1000);
+
+</script>
+
+</body>
+</html>
